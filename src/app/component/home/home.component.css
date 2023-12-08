@@ -1,0 +1,12 @@
+.menu{
+    background-color: black;
+    color: white;
+    height: 50px;
+}
+.content{
+    padding: 10px;
+}
+.item{
+    margin: 10px;
+    cursor: pointer;
+}

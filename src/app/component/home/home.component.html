@@ -1,0 +1,49 @@
+<div class="container-fluid">
+  <div class="text-center">
+    <p>Bienvenue sur le test WebAtrio</p>
+  </div>
+  <div class="menu">
+    <div class="d-flex justify-content-start">
+      <div class="item">
+        <a href="/add"> Ajouter Une personne</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div>
+        <label>Recherche par emploi</label><br>
+        <input type="text" name="emploi" [(ngModel)]="nomEmploi" ><button (click)="rechercheParNom()"> Recherche</button>
+    </div>
+    <div>
+        <label>Recherche par date</label><br>
+        <input type="date" name="debut" [(ngModel)]="dateDebut">
+        <input type="date" name="fin" [(ngModel)]="dateFin"><button (click)="rechercherPardate()"> Recherche</button>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Prenom</th>
+          <th>Date de Naissance</th>
+          <th>Age</th>
+          <th>Emploi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let personne of personnes">
+            <td>{{personne.nom}} </td>
+            <td>{{personne.prenom}} </td>
+            <td>{{personne.dateDeNaissance | date :'dd/MM/yyyy'}} </td>
+            <td>{{personne.age}} </td>
+            <td>
+                <div *ngIf="personne.emplois">
+                    <span *ngFor="let emploi of personne.emplois">{{emploi.nom}} </span>
+                </div>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
